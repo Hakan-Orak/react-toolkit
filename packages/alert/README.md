@@ -21,13 +21,15 @@ A default icon will be displayed if none is provided in props and the **first** 
 This example will display an orange alert with the "alert" glyphicon.
 
 ```javascript
-import React from 'react';
-import Alert from '@axa-fr/react-toolkit-alert';
-const MyDangerAlert => () => (
-  <Alert classModifier="danger" title="Caution !!!">
-    Please make sure you've backed up your application before going further.
-  </Alert>
-)
+import Alert from'@axa-fr/react-toolkit-alert';
+import '@axa-fr/react-toolkit-alert/dist/af-alert.css';
+
+const AlertComponent = () => (
+    <Alert classModifier="danger" icon="minus-sign" title="Warning: information is missing">
+    </Alert>
+  );
+
+export default AlertComponent;
 ```
 
 #### AlertCore
@@ -37,10 +39,24 @@ This core component does not assign an icon depending on the classModifier.
 You have to explicitly define it in the "icon" prop :
 
 ```javascript
-import React from 'react';
-import { AlertCore } from '@axa-fr/react-toolkit-alert';
-const MyErrorAlert => () =>
-  <AlertCore classModifier="error" iconClassName="glyphicon glyphicon-exclamation-sign" title="Error !"/>
+import {AlertCore} from'@axa-fr/react-toolkit-alert';
+import '@axa-fr/react-toolkit-alert/dist/af-alert.css';
+
+const MyErrorAlert = () => (
+<AlertCore classModifier="error" iconClassName="glyphicon glyphicon-minus-sign" title="Error !">
+
+  <ul>
+    <li>Name is required</li>
+    <li>Username is required</li>
+    <li>Email is required</li>
+    <li>The date format is invalid</li>
+  </ul>
+  
+  </AlertCore>
+  );
+
+export default MyErrorAlert;
+
 ```
 
 #### AlertWithType
@@ -52,8 +68,14 @@ The prop type has **only** 4 possible values : _error_, _danger_, _info_ and _su
 This example will display a blue alert with an info-sign glyphicon :
 
 ```javascript
-import React from 'react';
-import { AlertWithType } from '@axa-fr/react-toolkit-alert';
-const MyInfoAlert => () =>
-  <AlertWithType type="info" title="An apple a day keeps the doctor away."/>
+import {AlertWithType} from'@axa-fr/react-toolkit-alert';
+import '@axa-fr/react-toolkit-alert/dist/af-alert.css';
+
+const MyInfoAlert = () => (
+<AlertWithType type="info" title="Info: you can also contact an advisor by phone"/>
+  );
+
+export default MyInfoAlert;
+
+
 ```
