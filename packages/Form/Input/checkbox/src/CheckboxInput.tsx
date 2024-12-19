@@ -32,7 +32,7 @@ const CheckboxInput = ({
   return (
     <Field
       label={label}
-      id={newOptions[0].id}
+      id={newOptions[0].id ?? ''}
       message={message}
       messageType={messageType}
       isVisible={isVisible}
